@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Plus, Minus, Play, Pause, RotateCcw, Trophy } from 'lucide-react';
+const { useState, useEffect } = React;
 
 function JiuJitsuScoreboard() {
   const [athlete1, setAthlete1] = useState({ name: 'Atleta 1', points: 0, advantages: 0, penalties: 0 });
@@ -103,8 +102,7 @@ function JiuJitsuScoreboard() {
         {/* Cabeçalho */}
         <div className="text-center mb-6">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-2 flex items-center justify-center gap-3">
-            <Trophy className="text-yellow-400" size={48} />
-            LOTUS CLUB SJC
+            🏆 LOTUS CLUB SJC
           </h1>
           <p className="text-2xl text-yellow-400 font-semibold mb-1">Campeonato Interno de Jiu-Jitsu</p>
         </div>
@@ -117,23 +115,21 @@ function JiuJitsuScoreboard() {
           <div className="flex justify-center gap-4 flex-wrap">
             <button
               onClick={() => setIsRunning(!isRunning)}
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl text-xl font-bold flex items-center gap-2 transition-all"
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl text-xl font-bold transition-all"
             >
-              {isRunning ? <Pause size={24} /> : <Play size={24} />}
-              {isRunning ? 'Pausar' : 'Iniciar'}
+              {isRunning ? '⏸ Pausar' : '▶ Iniciar'}
             </button>
             <button
               onClick={resetMatch}
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl text-xl font-bold flex items-center gap-2 transition-all"
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl text-xl font-bold transition-all"
             >
-              <RotateCcw size={24} />
-              Reset
+              🔄 Reset
             </button>
             <button
               onClick={() => setEditingTime(!editingTime)}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-xl font-bold transition-all"
             >
-              Ajustar Tempo
+              ⏱ Ajustar Tempo
             </button>
           </div>
           {editingTime && (
@@ -184,12 +180,8 @@ function JiuJitsuScoreboard() {
                 <div className="text-yellow-300 text-sm font-semibold mb-2">VANTAGENS</div>
                 <div className="text-4xl font-bold text-white mb-2">{athlete1.advantages}</div>
                 <div className="flex gap-2">
-                  <button onClick={() => addAdvantage(1)} className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-lg flex items-center justify-center">
-                    <Plus size={20} />
-                  </button>
-                  <button onClick={() => removeAdvantage(1)} className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg flex items-center justify-center">
-                    <Minus size={20} />
-                  </button>
+                  <button onClick={() => addAdvantage(1)} className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-lg text-xl">+</button>
+                  <button onClick={() => removeAdvantage(1)} className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg text-xl">−</button>
                 </div>
               </div>
 
@@ -197,12 +189,8 @@ function JiuJitsuScoreboard() {
                 <div className="text-red-300 text-sm font-semibold mb-2">PUNIÇÕES</div>
                 <div className="text-4xl font-bold text-white mb-2">{athlete1.penalties}</div>
                 <div className="flex gap-2">
-                  <button onClick={() => addPenalty(1)} className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg flex items-center justify-center">
-                    <Plus size={20} />
-                  </button>
-                  <button onClick={() => removePenalty(1)} className="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg flex items-center justify-center">
-                    <Minus size={20} />
-                  </button>
+                  <button onClick={() => addPenalty(1)} className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg text-xl">+</button>
+                  <button onClick={() => removePenalty(1)} className="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg text-xl">−</button>
                 </div>
               </div>
             </div>
@@ -235,12 +223,8 @@ function JiuJitsuScoreboard() {
                 <div className="text-yellow-300 text-sm font-semibold mb-2">VANTAGENS</div>
                 <div className="text-4xl font-bold text-white mb-2">{athlete2.advantages}</div>
                 <div className="flex gap-2">
-                  <button onClick={() => addAdvantage(2)} className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-lg flex items-center justify-center">
-                    <Plus size={20} />
-                  </button>
-                  <button onClick={() => removeAdvantage(2)} className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg flex items-center justify-center">
-                    <Minus size={20} />
-                  </button>
+                  <button onClick={() => addAdvantage(2)} className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-lg text-xl">+</button>
+                  <button onClick={() => removeAdvantage(2)} className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg text-xl">−</button>
                 </div>
               </div>
 
@@ -248,12 +232,8 @@ function JiuJitsuScoreboard() {
                 <div className="text-red-300 text-sm font-semibold mb-2">PUNIÇÕES</div>
                 <div className="text-4xl font-bold text-white mb-2">{athlete2.penalties}</div>
                 <div className="flex gap-2">
-                  <button onClick={() => addPenalty(2)} className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg flex items-center justify-center">
-                    <Plus size={20} />
-                  </button>
-                  <button onClick={() => removePenalty(2)} className="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg flex items-center justify-center">
-                    <Minus size={20} />
-                  </button>
+                  <button onClick={() => addPenalty(2)} className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg text-xl">+</button>
+                  <button onClick={() => removePenalty(2)} className="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg text-xl">−</button>
                 </div>
               </div>
             </div>
@@ -274,4 +254,4 @@ function JiuJitsuScoreboard() {
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<JiuJitsuScoreboard />);
+root.render(React.createElement(JiuJitsuScoreboard));
